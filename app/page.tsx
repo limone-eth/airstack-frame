@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 
 const frameMetadata = getFrameMetadata({
   buttons: ['So?'],
-  image: 'https://ff.limone.lol/img-1.png',
-  post_url: 'https://ff.limone.lol/api/frame',
+  image: 'https://lemon-frame.vercel.app/img-1.png',
+  post_url: 'https://lemon-frame.vercel.app/api/frame',
 });
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ff.limone.lol',
     description: 'zesty',
-    images: ['https://ff.limone.lol/img-2.png'],
+    images: ['https://lemon-frame.vercel.app/img-2.png'],
   },
   other: {
     ...frameMetadata,
