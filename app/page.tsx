@@ -2,7 +2,7 @@ import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 
 const frameMetadata = getFrameMetadata({
-  buttons: ['So?'],
+  buttons: ['YES 🍋'],
   image: 'https://lemon-frame.vercel.app/img-1.png',
   post_url: 'https://lemon-frame.vercel.app/api/frame',
 });
