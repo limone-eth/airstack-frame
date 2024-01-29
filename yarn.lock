@@ -24,10 +24,10 @@
     "@openzeppelin/contracts-upgradeable" "^4.7.3"
     "@openzeppelin/contracts-v0.7" "npm:@openzeppelin/contracts@v3.4.2"
 
-"@coinbase/onchainkit@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@coinbase/onchainkit/-/onchainkit-0.1.5.tgz#13b71ca620704026fd571b5d046dbc48ac5f4e13"
-  integrity sha512-ukBK6nil3awObxbJiEAM1+iyj3SB0WhsjhJyAT4qWeHjw6Ay/K8RC8k53BYGVg+UP2KYkMRnefnOA++GXFMahw==
+"@coinbase/onchainkit@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@coinbase/onchainkit/-/onchainkit-0.1.6.tgz#2866b8c4eb05b0cd0d4910063cde93237bfdf424"
+  integrity sha512-FerVWA4wsbCIT0E87djcA/5LmMVaaE83XdeT2CW+VG0H4D+drong2kdRVI9XKcEu7dupEjRyJjTMTtB9kuAjLw==
   dependencies:
     "@ethersproject/abstract-signer" "^5.7.0"
     "@farcaster/fishery" "^2.2.3"

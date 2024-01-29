@@ -12,7 +12,7 @@
   "author": "@limone-eth",
   "license": "MIT",
   "dependencies": {
-    "@coinbase/onchainkit": "^0.1.5",
+    "@coinbase/onchainkit": "^0.1.6",
     "@neynar/nodejs-sdk": "^1.8.0",
     "@thirdweb-dev/sdk": "^4.0.28",
     "next": "13.5.6",
