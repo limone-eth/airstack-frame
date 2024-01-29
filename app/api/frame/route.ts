@@ -1,6 +1,12 @@
 import { getFrameAccountAddress } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
 import { alreadyClaimed, claimNftTo } from '../../lib/thirdweb';
+import { NeynarAPIClient } from '@neynar/nodejs-sdk';
+import {
+  ALREADY_CLAIMED_IMAGE_URL,
+  INITIAL_IMAGE_URL,
+  SUCCESS_CLAIM_IMAGE_URL,
+} from '../../lib/constants';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress = '';
@@ -16,7 +22,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   if (!accountAddress) {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://airstack-frame.vercel.app/img-2.png" />
+    <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
+    <meta property="fc:frame:button" content="Try Again ↩️" />
+    <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
   }
 
@@ -24,7 +32,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   if (didClaim) {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://airstack-frame.vercel.app/img-2.png" />
+    <meta property="fc:frame:image" content="${ALREADY_CLAIMED_IMAGE_URL}" />
     </head></html>`);
   }
 
@@ -32,7 +40,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://airstack-frame.vercel.app/img-2.png" />
+    <meta property="fc:frame:image" content="${SUCCESS_CLAIM_IMAGE_URL}" />
   </head></html>`);
 }
 

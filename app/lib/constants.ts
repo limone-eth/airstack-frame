@@ -7,8 +7,14 @@ export const CONTRACT_ADDRESS =
 
 export const NETWORK = process.env.NODE_ENV === 'production' ? Zora : ZoraSepoliaTestnet;
 
-export const NFT_ANIMATION_URL = 'ipfs://QmWPYLhaaZbksJCwmaCrAvFi6Pn1LntSwPHXmUdCVUf2iE/zorayahoo.gif';
+export const NFT_ANIMATION_URL =
+  'ipfs://QmWPYLhaaZbksJCwmaCrAvFi6Pn1LntSwPHXmUdCVUf2iE/zorayahoo.gif';
 export const NFT_NAME = 'Airstack launches Zora composability';
 export const NFT_DESCRIPTION =
   'Zora is now easily composable with with Farcaster, Base, Ethereum, Polygon, ENS, XMTP, POAP, Lens, and more!';
 export const NFT_IMAGE_URL = 'https://i.imgur.com/uzSo4ew.png';
+
+export const INITIAL_IMAGE_URL = 'https://i.imgur.com/uzSo4ew.png';
+export const SUCCESS_CLAIM_IMAGE_URL = 'https://i.imgur.com/uzSo4ew.png';
+export const ALREADY_CLAIMED_IMAGE_URL = 'https://i.imgur.com/uzSo4ew.png';
+export const NOT_RECASTED_IMAGE_URL = 'https://i.imgur.com/uzSo4ew.png';
