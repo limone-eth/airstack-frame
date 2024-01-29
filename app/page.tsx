@@ -2,17 +2,17 @@ import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 
 const frameMetadata = getFrameMetadata({
-  buttons: ['MINT 🍋'],
+  buttons: ['mint airstack 🤝 zora'],
   image: 'https://airstack-frame.vercel.app/img-1.png',
   post_url: 'https://airstack-frame.vercel.app/api/frame',
 });
 
 export const metadata: Metadata = {
   title: 'frame.airstack.xyz',
-  description: 'Airstack Frame',
+  description: 'airstack 🤝 zora',
   openGraph: {
     title: 'frame.airstack.xyz',
-    description: 'Airstack Frame',
+    description: 'airstack 🤝 zora',
     images: ['https://airstack-frame.vercel.app/img-2.png'],
   },
   other: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>ff.limone.lol</h1>
+      <h1>frame.airstack.xyz</h1>
     </>
   );
 }

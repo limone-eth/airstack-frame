@@ -9,6 +9,7 @@ import {
   SUCCESS_CLAIM_IMAGE_URL,
 } from '../../lib/constants';
 import { validateFrame } from '../../lib/neynar';
+import { getAssociatedAddress } from '../../lib/airstack';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined;
@@ -52,7 +53,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     </head></html>`);
   }
 
-  const didClaim = await alreadyClaimed(accountAddress);
+  const associatedAddress = await getAssociatedAddress(validatedFrame.action.interactor.username!);
+
+  const didClaim = await alreadyClaimed(associatedAddress ?? accountAddress);
   if (didClaim) {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />

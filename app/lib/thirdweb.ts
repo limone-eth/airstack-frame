@@ -29,7 +29,7 @@ export const batchUpload = async (amount: number) => {
   const supply = await contract.totalSupply();
   const tx = await contract.createBatch(
     Array.from({ length: amount }, (_, index) => ({
-      name: `${NFT_NAME} - #${supply.toNumber() + index + 1}`,
+      name: NFT_NAME,
       description: NFT_DESCRIPTION,
       image: NFT_IMAGE_URL,
       animation_url: NFT_ANIMATION_URL,
