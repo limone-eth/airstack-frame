@@ -63,7 +63,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     </head></html>`);
   }
 
-  await claimNftTo(accountAddress);
+  // await claimNftTo(accountAddress);
 
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
