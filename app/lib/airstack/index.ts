@@ -1,5 +1,4 @@
 import { fetchQuery } from '@airstack/node';
-import { DocumentNode } from '@apollo/client/core';
 import { FetchAssociatedAddressQueryQuery } from './types';
 
 interface QueryResponse {
