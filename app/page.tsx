@@ -1,9 +1,10 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
+import { INITIAL_IMAGE_URL } from './lib/constants';
 
 const frameMetadata = getFrameMetadata({
   buttons: ['mint airstack 🤝 zora'],
-  image: 'https://airstack-frame.vercel.app/img-1.png',
+  image: INITIAL_IMAGE_URL,
   post_url: 'https://airstack-frame.vercel.app/api/frame',
 });
 
