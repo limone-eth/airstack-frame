@@ -25,7 +25,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
-    <meta property="fc:frame:button" content="Try Again ↩️" />
+    <meta property="fc:frame:button" content="try again" />
     <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
   }
@@ -35,30 +35,14 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
-    <meta property="fc:frame:button" content="Try Again ↩️" />
+    <meta property="fc:frame:button" content="try again" />
     <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
   }
 
-  console.log('Account address is valid', accountAddress);
+  console.log('Account address is', accountAddress);
 
-  const validatedFrame = await validateFrame(messageBytes!);
-  if (!validatedFrame.action.cast.viewer_context.recasted) {
-    return new NextResponse(`<!DOCTYPE html><html><head>
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${NOT_RECASTED_IMAGE_URL}" />
-    <meta property="fc:frame:button" content="Recast and then try again ↩️" />
-    <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
-    </head></html>`);
-  }
-
-  console.log('Frame is valid', validatedFrame);
-
-  const associatedAddress = await getAssociatedAddress(validatedFrame.action.interactor.username!);
-
-  console.log('Associated address is', associatedAddress);
-
-  const didClaim = await alreadyClaimed(associatedAddress ?? accountAddress);
+  const didClaim = await alreadyClaimed(accountAddress);
   if (didClaim) {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
@@ -66,7 +50,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     </head></html>`);
   }
 
-  console.log('Claiming to...', associatedAddress ?? accountAddress);
+  console.log('Claiming to...', accountAddress);
 
   // await claimNftTo(accountAddress);
 
