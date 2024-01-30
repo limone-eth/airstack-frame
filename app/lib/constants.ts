@@ -2,10 +2,11 @@ import { ZoraSepoliaTestnet, Zora } from '@thirdweb-dev/chains';
 
 export const CONTRACT_ADDRESS =
   process.env.NODE_ENV === 'production'
-    ? '0xa15Bb830aCD9Ab46164e6840E3ef2dBBF9c5E2B3'
+    ? '0x6b541C3467Ba4936f8257111bf56C3BabD27bf1E' // '0xa15Bb830aCD9Ab46164e6840E3ef2dBBF9c5E2B3'
     : '0x6b541C3467Ba4936f8257111bf56C3BabD27bf1E';
 
-export const NETWORK = process.env.NODE_ENV === 'production' ? Zora : ZoraSepoliaTestnet;
+export const NETWORK =
+  process.env.NODE_ENV === 'production' ? ZoraSepoliaTestnet : ZoraSepoliaTestnet;
 
 export const NFT_ANIMATION_URL =
   'ipfs://QmWPYLhaaZbksJCwmaCrAvFi6Pn1LntSwPHXmUdCVUf2iE/zorayahoo.gif';
