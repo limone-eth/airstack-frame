@@ -54,10 +54,16 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   // await claimNftTo(accountAddress);
 
-  return new NextResponse(`<!DOCTYPE html><html><head>
+  /*return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${SUCCESS_CLAIM_IMAGE_URL}" />
-  </head></html>`);
+  </head></html>`);*/
+  return new NextResponse(`<!DOCTYPE html><html><head>
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
+    <meta property="fc:frame:button" content="try again" />
+    <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
+    </head></html>`);
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
