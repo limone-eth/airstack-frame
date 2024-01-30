@@ -1,6 +1,6 @@
 import { getFrameAccountAddress, getFrameValidatedMessage } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
-import { alreadyClaimed } from '../../lib/thirdweb';
+import { alreadyClaimed, claimNftTo } from '../../lib/thirdweb';
 import {
   INITIAL_IMAGE_URL,
   SUCCESS_CLAIM_IMAGE_URL,
@@ -47,18 +47,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   console.log('Claiming to...', accountAddress);
 
-  // await claimNftTo(accountAddress);
+  await claimNftTo(accountAddress);
 
-  /*return new NextResponse(`<!DOCTYPE html><html><head>
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${SUCCESS_CLAIM_IMAGE_URL}" />
-  </head></html>`);*/
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
-    <meta property="fc:frame:button:1" content="try again" />
-    <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
-    </head></html>`);
+    <meta property="fc:frame:image" content="${SUCCESS_CLAIM_IMAGE_URL}" />
+  </head></html>`);
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
