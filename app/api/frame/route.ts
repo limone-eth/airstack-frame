@@ -20,10 +20,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     accountAddress = await getFrameAccountAddress(body, {
       NEYNAR_API_KEY: process.env.NEYNAR_API_KEY,
     });
-    const validatedMessage = await getFrameValidatedMessage(body);
-    if (!validatedMessage) {
-      throw new Error('Invalid message');
-    }
   } catch (err) {
     console.error(err);
     return new NextResponse(`<!DOCTYPE html><html><head>
@@ -33,6 +29,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
   }
+  console.log('Message is valid');
 
   if (!accountAddress) {
     return new NextResponse(`<!DOCTYPE html><html><head>
@@ -42,6 +39,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
   }
+
+  console.log('Account address is valid', accountAddress);
 
   const validatedFrame = await validateFrame(messageBytes!);
   if (!validatedFrame.action.cast.viewer_context.recasted) {
@@ -53,7 +52,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     </head></html>`);
   }
 
+  console.log('Frame is valid', validatedFrame);
+
   const associatedAddress = await getAssociatedAddress(validatedFrame.action.interactor.username!);
+
+  console.log('Associated address is', associatedAddress);
 
   const didClaim = await alreadyClaimed(associatedAddress ?? accountAddress);
   if (didClaim) {
@@ -62,6 +65,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:image" content="${SUCCESS_CLAIM_IMAGE_URL}" />
     </head></html>`);
   }
+
+  console.log('Claiming to...', associatedAddress ?? accountAddress);
 
   // await claimNftTo(accountAddress);
 
