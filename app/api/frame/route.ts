@@ -1,10 +1,7 @@
 import { getFrameAccountAddress, getFrameValidatedMessage } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
 import { alreadyClaimed, claimNftTo } from '../../lib/thirdweb';
-import {
-  INITIAL_IMAGE_URL,
-  SUCCESS_CLAIM_IMAGE_URL,
-} from '../../lib/constants';
+import { INITIAL_IMAGE_URL, SUCCESS_CLAIM_IMAGE_URL } from '../../lib/constants';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined;
@@ -45,9 +42,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     </head></html>`);
   }
 
-  console.log('Claiming to...', accountAddress);
+  console.log('Claiming to ->', accountAddress);
 
   await claimNftTo(accountAddress);
+
+  console.log('NFT claimed!', accountAddress);
 
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
