@@ -1,15 +1,10 @@
 import { getFrameAccountAddress, getFrameValidatedMessage } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
-import { alreadyClaimed, claimNftTo } from '../../lib/thirdweb';
-import { NeynarAPIClient } from '@neynar/nodejs-sdk';
+import { alreadyClaimed } from '../../lib/thirdweb';
 import {
-  ALREADY_CLAIMED_IMAGE_URL,
   INITIAL_IMAGE_URL,
-  NOT_RECASTED_IMAGE_URL,
   SUCCESS_CLAIM_IMAGE_URL,
 } from '../../lib/constants';
-import { validateFrame } from '../../lib/neynar';
-import { getAssociatedAddress } from '../../lib/airstack';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined;
@@ -25,7 +20,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
-    <meta property="fc:frame:button" content="try again" />
+    <meta property="fc:frame:button:1" content="try again" />
     <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
   }
@@ -35,7 +30,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
-    <meta property="fc:frame:button" content="try again" />
+    <meta property="fc:frame:button:1" content="try again" />
     <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
   }
@@ -61,7 +56,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${INITIAL_IMAGE_URL}" />
-    <meta property="fc:frame:button" content="try again" />
+    <meta property="fc:frame:button:1" content="try again" />
     <meta property="fc:frame:post_url" content="https://airstack-frame.vercel.app/api/frame" />
     </head></html>`);
 }
