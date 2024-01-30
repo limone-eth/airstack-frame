@@ -2,8 +2,8 @@ import { ZoraSepoliaTestnet, Zora } from '@thirdweb-dev/chains';
 
 export const CONTRACT_ADDRESS =
   process.env.NODE_ENV === 'production'
-    ? '0x6b541C3467Ba4936f8257111bf56C3BabD27bf1E' // '0xa15Bb830aCD9Ab46164e6840E3ef2dBBF9c5E2B3'
-    : '0x6b541C3467Ba4936f8257111bf56C3BabD27bf1E';
+    ? '0x324ecaE0b06C9bf82D033CE35debDE97921aE126' // '0xa15Bb830aCD9Ab46164e6840E3ef2dBBF9c5E2B3'
+    : '0x324ecaE0b06C9bf82D033CE35debDE97921aE126';
 
 export const NETWORK =
   process.env.NODE_ENV === 'production' ? ZoraSepoliaTestnet : ZoraSepoliaTestnet;
